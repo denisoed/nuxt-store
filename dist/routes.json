@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Cart",
+    "path": "/Cart",
+    "component": "/home/denisoed/projects/my-app/src/pages/Cart.vue",
+    "chunkName": "pages/Cart",
+    "_name": "_41b2826e"
+  },
+  {
+    "name": "Checkout",
+    "path": "/Checkout",
+    "component": "/home/denisoed/projects/my-app/src/pages/Checkout.vue",
+    "chunkName": "pages/Checkout",
+    "_name": "_7de91d6f"
+  },
+  {
+    "name": "Home",
+    "path": "/Home",
+    "component": "/home/denisoed/projects/my-app/src/pages/Home.vue",
+    "chunkName": "pages/Home",
+    "_name": "_7c6f7df0"
+  },
+  {
+    "name": "Product",
+    "path": "/Product",
+    "component": "/home/denisoed/projects/my-app/src/pages/Product.vue",
+    "chunkName": "pages/Product",
+    "_name": "_76ba6956"
+  },
+  {
+    "name": "Shop",
+    "path": "/Shop",
+    "component": "/home/denisoed/projects/my-app/src/pages/Shop.vue",
+    "chunkName": "pages/Shop",
+    "_name": "_6ba378c2"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/denisoed/projects/my-app/src/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_540b0399"
+  }
+]

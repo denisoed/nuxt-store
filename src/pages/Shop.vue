@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <div v-frag>
     <div class="shop_sidebar_area">
 
       <!-- ##### Single Widget ##### -->
@@ -382,7 +382,7 @@
         </div>
       </div>
     </div>
-  </fragment>
+  </div>
 </template>
 
 <script>

@@ -61,7 +61,7 @@ module.exports = {
         }
       ],
       plugins: [
-        '~/plugins/vue-fragment.js',
+        '~/plugins/vue-frag.js',
       ]
     })
   ]
