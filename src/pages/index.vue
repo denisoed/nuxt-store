@@ -60,7 +60,7 @@
 */
 const GET_TODOS = `
   query GetTodos {
-    allTodos {
+    allCategories {
       name
       id
     }
@@ -113,14 +113,14 @@ export default {
   async asyncData() {
     const { data } = await graphql(GET_TODOS);
     return {
-      todos: data.allTodos,
+      todos: data.allCategories,
     };
   },
 
   methods: {
     async getTodos() {
       const { data } = await graphql(GET_TODOS);
-      this.todos = data.allTodos;
+      this.todos = data.allCategories;
     },
     async addTodo() {
       if (this.newTodo.length === 0) {

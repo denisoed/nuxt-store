@@ -1,7 +1,8 @@
 require('dotenv').config();
 
 const { Keystone } = require('@keystonejs/keystone');
-const { Text } = require('@keystonejs/fields');
+const { Text, File } = require('@keystonejs/fields');
+const { S3Adapter } = require('@keystonejs/file-adapters');
 const { GraphQLApp } = require('@keystonejs/app-graphql');
 const { AdminUIApp } = require('@keystonejs/app-admin-ui');
 const { NuxtApp } = require('@keystonejs/app-nuxt');
@@ -9,6 +10,7 @@ const { NuxtApp } = require('@keystonejs/app-nuxt');
 const { MongooseAdapter: Adapter } = require('@keystonejs/adapter-mongoose');
 const PROJECT_NAME = 'Amado';
 const adapterConfig = { mongoUri: 'mongodb://localhost/amado' };
+const S3_PATH = 'uploads';
 
 
 const keystone = new Keystone({
@@ -16,10 +18,28 @@ const keystone = new Keystone({
   cookieSecret: process.env.COOKIE_SECRET
 });
 
-keystone.createList('Todo', {
+const fileAdapter = new S3Adapter({
+  bucket: 'amadostore',
+  folder: S3_PATH,
+  publicUrl: ({ id, filename, _meta }) =>
+    `https://${process.env.S3_DISTRIBUTION_DOMAIN_NAME}/${S3_PATH}/${filename}`,
+  s3Options: {
+    accessKeyId: process.env.S3_ACCESS_KEY_ID,
+    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY
+  },
+  uploadParams: ({ filename, id, mimetype, encoding }) => ({
+    Metadata: {
+      keystone_id: `${id}`,
+    }
+  })
+})
+
+keystone.createList('Category', {
   schemaDoc: 'A list of things which need to be done',
   fields: {
-    name: { type: Text, schemaDoc: 'This is the thing you need to do' },
+    name: { type: Text, schemaDoc: 'Name of caterory' },
+    priceFrom: { type: Text, schemaDoc: 'Minimum price of the product in the category' },
+    image: { type: File, adapter: fileAdapter }
   },
 });
 

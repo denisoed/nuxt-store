@@ -12,7 +12,7 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_vuefragment_a152fcac from 'nuxt_plugin_vuefragment_a152fcac' // Source: ../src/plugins/vue-fragment.js (mode: 'all')
+import nuxt_plugin_vuefrag_b512e770 from 'nuxt_plugin_vuefrag_b512e770' // Source: ../src/plugins/vue-frag.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -172,8 +172,8 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_vuefragment_a152fcac === 'function') {
-    await nuxt_plugin_vuefragment_a152fcac(app.context, inject)
+  if (typeof nuxt_plugin_vuefrag_b512e770 === 'function') {
+    await nuxt_plugin_vuefrag_b512e770(app.context, inject)
   }
 
   // Lock enablePreview in context
