@@ -82,6 +82,7 @@ module.exports = {
       ],
       plugins: [
         '~/plugins/vue-frag.js',
+        { src: '~/plugins/vue-masonry.js', ssr: false }
       ]
     })
   ]
