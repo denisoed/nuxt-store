@@ -101,6 +101,7 @@
 
 <script>
 export default {
-  name: 'Checkout'
+  name: 'Checkout',
+  transition: 'fade'
 }
 </script>

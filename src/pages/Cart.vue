@@ -120,6 +120,7 @@
 
 <script>
   export default {
-    name: 'Cart'
+    name: 'Cart',
+    transition: 'fade'
   }
 </script>

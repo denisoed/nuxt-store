@@ -387,6 +387,7 @@
 
 <script>
   export default {
-    name: 'Shop'
+    name: 'Shop',
+    transition: 'fade'
   }
 </script>

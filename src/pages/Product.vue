@@ -117,6 +117,7 @@
 
 <script>
 export default {
-  name: 'Product'
+  name: 'Product',
+  transition: 'fade'
 }
 </script>
