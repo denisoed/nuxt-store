@@ -104,3 +104,147 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.widget {
+  position: relative;
+  z-index: 1;
+
+  .widget-title {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #242424;
+  }
+
+  .catagories-menu li {
+    a {
+      text-transform: capitalize;
+      font-size: 16px;
+      padding: 15px 0 15px 20px;
+      display: block;
+      font-weight: 400;
+      color: #959595;
+
+      &:hover, &:focus {
+        color: #fbb710;
+      }
+    }
+
+    &.active a {
+      color: #fbb710;
+    }
+  }
+
+  &.price {
+    .slider-range-price {
+      background-color: #c7d2d8 !important;
+      height: 2px;
+      border: none;
+    }
+
+    .ui-slider-handle {
+      background-color: #fff;
+      top: -7px;
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      border: 2px solid #fbb710;
+      border-radius: 50%;
+    }
+
+    .ui-slider-range.ui-corner-all.ui-widget-header {
+      background-color: #fbb710;
+    }
+
+    .ui-slider-horizontal {
+      height: 2px;
+      background-color: #fbb710;
+    }
+
+    .range-price {
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: 20px;
+      text-transform: uppercase;
+      color: #959595;
+    }
+  }
+
+  &.color .widget-desc ul {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    li {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+      flex: 0 0 25%;
+      width: 25%;
+      margin-bottom: 15px;
+
+      a {
+        width: 30px;
+        height: 30px;
+        display: block;
+        border-radius: 50%;
+        background-color: #ffffff;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+
+        &.color1 {
+          background-color: #ffffff;
+        }
+
+        &.color2 {
+          background-color: #969696;
+        }
+
+        &.color3 {
+          background-color: #030303;
+        }
+
+        &.color4 {
+          background-color: #0315ff;
+        }
+
+        &.color5 {
+          background-color: #dc0647;
+        }
+
+        &.color6 {
+          background-color: #fff56a;
+        }
+
+        &.color7 {
+          background-color: #f26e51;
+        }
+
+        &.color8 {
+          background-color: #9a8777;
+        }
+      }
+    }
+  }
+
+  &.brands .form-check {
+    margin-bottom: 25px;
+
+    label {
+      -webkit-transition-duration: 500ms;
+      transition-duration: 500ms;
+      font-size: 16px;
+      color: #959595;
+      font-weight: 400;
+      cursor: pointer;
+
+      &:hover {
+        color: #fbb710;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+</style>
