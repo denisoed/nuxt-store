@@ -28,44 +28,23 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 import Category from '@/components/Category.vue';
-
-const GET_CATEGORIES = `
-  query GetCategories {
-    allCategories {
-      name
-      priceFrom
-      image {
-        publicUrl
-      }
-    }
-  }
-`;
-
-function graphql(query, variables = {}) {
-  return fetch('http://localhost:3000/admin/api', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      variables,
-      query,
-    }),
-  }).then(function(result) {
-    return result.json();
-  });
-}
 
 export default {
   name: 'Home',
   transition: 'fade',
   components: { Category },
-  async asyncData() {
-    const { data } = await graphql(GET_CATEGORIES);
-    return {
-      categories: data.allCategories,
-    };
+  computed: {
+    ...mapState('categories', {
+      categories: 'list'
+    })
+  },
+  created() {
+    this.getCategories();
+  },
+  methods: {
+    ...mapActions('categories', ['getCategories']),
   }
 };
 </script>
