@@ -6,7 +6,6 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _41b2826e = () => interopDefault(import('../src/pages/Cart.vue' /* webpackChunkName: "pages/Cart" */))
 const _7de91d6f = () => interopDefault(import('../src/pages/Checkout.vue' /* webpackChunkName: "pages/Checkout" */))
-const _7c6f7df0 = () => interopDefault(import('../src/pages/Home.vue' /* webpackChunkName: "pages/Home" */))
 const _76ba6956 = () => interopDefault(import('../src/pages/Product.vue' /* webpackChunkName: "pages/Product" */))
 const _6ba378c2 = () => interopDefault(import('../src/pages/Shop.vue' /* webpackChunkName: "pages/Shop" */))
 const _540b0399 = () => interopDefault(import('../src/pages/index.vue' /* webpackChunkName: "pages/index" */))
@@ -30,10 +29,6 @@ export const routerOptions = {
     path: "/Checkout",
     component: _7de91d6f,
     name: "Checkout"
-  }, {
-    path: "/Home",
-    component: _7c6f7df0,
-    name: "Home"
   }, {
     path: "/Product",
     component: _76ba6956,

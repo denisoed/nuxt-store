@@ -8,9 +8,8 @@ import NuxtLoading from './components/nuxt-loading.vue'
 import '../src/assets/css/core-style.css'
 
 import _6f6c098b from '../src/layouts/default.vue'
-import _777ba69c from '../src/layouts/index.vue'
 
-const layouts = { "_default": sanitizeComponent(_6f6c098b),"_index": sanitizeComponent(_777ba69c) }
+const layouts = { "_default": sanitizeComponent(_6f6c098b) }
 
 export default {
   render (h, props) {
