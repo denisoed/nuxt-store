@@ -4,7 +4,7 @@
     <div class="mobile-nav">
       <!-- Navbar Brand -->
       <div class="amado-navbar-brand">
-        <a href="index.html"><img src="@/assets/img/core-img/logo.png" alt=""></a>
+        <router-link to="/"><img src="@/assets/img/core-img/logo.png" alt="Logo"></router-link>
       </div>
       <!-- Navbar Toggler -->
       <div class="amado-navbar-toggler">
@@ -20,7 +20,9 @@
       </div>
       <!-- Logo -->
       <div class="logo">
-        <a href="index.html"><img src="@/assets/img/core-img/logo.png" alt=""></a>
+        <router-link to="/">
+          <UILogo />
+        </router-link>
       </div>
       <!-- Amado Nav -->
       <nav class="amado-nav">
@@ -39,8 +41,9 @@
       </div>
       <!-- Cart Menu -->
       <div class="cart-fav-search mb-100">
-        <a href="cart.html" class="cart-nav"><img src="@/assets/img/core-img/cart.png" alt=""> Cart
-          <span>(0)</span></a>
+        <router-link to="/cart" class="cart-nav"><img src="@/assets/img/core-img/cart.png" alt="Carr icon"> Cart
+          <span>(0)</span>
+        </router-link>
         <a href="#" class="fav-nav"><img src="@/assets/img/core-img/favorites.png" alt=""> Favourite</a>
         <a href="#" class="search-nav"><img src="@/assets/img/core-img/search.png" alt=""> Search</a>
       </div>
@@ -57,11 +60,10 @@
 </template>
 
 <script>
-  export default {
+import UILogo from '@/components/ui/UILogo.vue';
 
-  }
+export default {
+  name: 'NavigationMenu',
+  components: { UILogo }
+}
 </script>
-
-<style>
-
-</style>

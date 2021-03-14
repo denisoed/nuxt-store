@@ -8,7 +8,9 @@
           <div class="single_widget_area">
             <!-- Logo -->
             <div class="footer-logo mr-50">
-              <a href="index.html"><img src="@/assets/img/core-img/logo2.png" alt=""></a>
+              <router-link to="/">
+                <UILogo light />
+              </router-link>
             </div>
             <!-- Copywrite Text -->
             <p class="copywrite">
@@ -61,7 +63,10 @@
 </template>
 
 <script>
+import UILogo from '@/components/ui/UILogo.vue';
+
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  components: { UILogo }
 }
 </script>
