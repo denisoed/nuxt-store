@@ -49,6 +49,14 @@ keystone.createList('Category', {
   },
 });
 
+keystone.createList('Gallery', {
+  schemaDoc: 'A list of things which need to be done',
+  fields: {
+    image: { type: File, adapter: fileAdapter },
+    alt: { type: Text, schemaDoc: 'Image alt' }
+  }
+});
+
 keystone.createList('Product', {
   schemaDoc: 'A list of things which need to be done',
   fields: {
@@ -57,7 +65,8 @@ keystone.createList('Product', {
     name: { type: Text, schemaDoc: 'Name of product' },
     description: { type: Text, schemaDoc: 'Product description' },
     price: { type: Text, schemaDoc: 'Product price' },
-    image: { type: File, adapter: fileAdapter }
+    thumbnail: { type: File, adapter: fileAdapter },
+    gallery: { type: Relationship, ref: 'Gallery', many: true },
   }
 });
 
