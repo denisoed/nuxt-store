@@ -1,13 +1,14 @@
 require('dotenv').config();
 
 const { Keystone } = require('@keystonejs/keystone');
-const { Text, File } = require('@keystonejs/fields');
+const { Text, File, Select, Relationship } = require('@keystonejs/fields');
 const { S3Adapter } = require('@keystonejs/file-adapters');
 const { GraphQLApp } = require('@keystonejs/app-graphql');
 const { AdminUIApp } = require('@keystonejs/app-admin-ui');
 const { NuxtApp } = require('@keystonejs/app-nuxt');
 
 const { MongooseAdapter: Adapter } = require('@keystonejs/adapter-mongoose');
+const nuxtConfig = require('./nuxt.config');
 const PROJECT_NAME = 'Amado';
 const adapterConfig = { mongoUri: 'mongodb://localhost/amado' };
 const S3_PATH = 'uploads';
@@ -17,6 +18,11 @@ const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   cookieSecret: process.env.COOKIE_SECRET
 });
+
+const options = [
+  { value: 'no', label: 'Out of stock' },
+  { value: 'yes', label: 'In stock' },
+];
 
 const fileAdapter = new S3Adapter({
   bucket: 'amadostore',
@@ -43,47 +49,25 @@ keystone.createList('Category', {
   },
 });
 
+keystone.createList('Product', {
+  schemaDoc: 'A list of things which need to be done',
+  fields: {
+    status: { type: Select, options },
+    category: { type: Relationship, ref: 'Category', many: false },
+    name: { type: Text, schemaDoc: 'Name of product' },
+    description: { type: Text, schemaDoc: 'Product description' },
+    price: { type: Text, schemaDoc: 'Product price' },
+    image: { type: File, adapter: fileAdapter }
+  }
+});
+
 module.exports = {
   keystone,
   apps: [
     new GraphQLApp(),
     new AdminUIApp({ name: PROJECT_NAME }),
     new NuxtApp({
-      srcDir: 'src',
-      buildDir: 'dist',
-      head: {
-        script: [
-          {
-            src: 'js/jquery/jquery-2.2.4.min.js',
-            body: true
-          },
-          {
-            src: 'js/popper.min.js',
-            body: true
-          },
-          {
-            src: 'js/bootstrap.min.js',
-            body: true
-          },
-          {
-            src: 'js/plugins.js',
-            body: true
-          },
-          {
-            src: 'js/active.js',
-            body: true
-          },
-        ]
-      },
-      css: [
-        {
-          src: '~/assets/css/core-style.css'
-        }
-      ],
-      plugins: [
-        '~/plugins/vue-frag.js',
-        { src: '~/plugins/vue-masonry.js', ssr: false }
-      ]
+      ...nuxtConfig
     })
   ]
 };
